@@ -19,5 +19,4 @@ jobs:
 
       - name: Deploy to Surge
         run: |
-          cd dist/angular-components
           npx surge . https://breakout.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
