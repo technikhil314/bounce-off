@@ -17,10 +17,7 @@ jobs:
         with:
           node-version: "12.x"
 
-      - name: Install Surge
-        run: npm install -g surge
-
       - name: Deploy to Surge
         run: |
           cd dist/angular-components
-          surge . https://breakout.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
+          npx surge . https://breakout.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
