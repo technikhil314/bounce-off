@@ -1,0 +1,21 @@
+name: deploy to surge
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Deploy to breakout.surge.sh
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Surge
+        run: npm install -g surge
+
+      - name: Deploy to Surge
+        run: |
+          cd dist/angular-components
+          surge . https://breakout.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
